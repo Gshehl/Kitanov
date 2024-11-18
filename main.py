@@ -115,6 +115,13 @@ def handle_item(message):
         Цена товара: {price}$
         https://t.me/send?start=IVX614wkWXdx
         Оплатите по счету {price}
+
+        """,
+        reply_markup=markup
+   bot.send_message(
+        message.chat.id,
+        f"""
+        
         ✋ДОБАВЬТЕ В КОММЕНТАРИИ СВОЙ ЮЗЕРНЕЙМ А ИНАЧЕ ТОВАРА НЕ ВЫДАДИМ✋
         """,
         reply_markup=markup
