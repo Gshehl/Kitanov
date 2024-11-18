@@ -115,6 +115,7 @@ def handle_item(message):
         Цена товара: {price}$
         https://t.me/send?start=IVX614wkWXdx
         Оплатите по счету {price}
+        ✋ДОБАВЬТЕ В КОММЕНТАРИИ СВОЙ ЮЗЕРНЕЙМ А ИНАЧЕ ТОВАРА НЕ ВЫДАДИМ✋
         """,
         reply_markup=markup
     )
