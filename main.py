@@ -11,7 +11,7 @@ bot = telebot.TeleBot(BOT_TOKEN)
 # Кнопка для покупки товара
 buy_button = types.KeyboardButton("❤️ купить товар ❤️")
 # Создаем клавиатуру с кнопкой покупки
-main_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True) 
+main_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 main_keyboard.add(buy_button)
 
 # Храним информацию о выбранных товарах и пользователях
@@ -25,7 +25,7 @@ logging.basicConfig(level=logging.INFO, filename='bot.log', filemode='a',
 def send_welcome(message):
   user_id = message.chat.id
   username = message.from_user.username
-  
+
   # Проверка наличия юзернейма
   if not username:
     bot.send_message(
@@ -34,17 +34,16 @@ def send_welcome(message):
       reply_markup=None
     )
     return # Выход из обработчика, чтобы пользователь мог установить юзернейм
-  
+
   bot.send_message(
     user_id,
     """
-Приветствуем тебя  в KitanovShop! тут ты можешь приобрести нужные тебе товары по самым низким ценам.
-почему цены такие низкие? наш магазин делает МАЛЕЙШУЮ наценку в отличии других продавьцов.
+Приветствуем тебя в KitanovShop! тут ты можешь приобрести нужные тебе товары по самым низким ценам.
+Почему цены такие низкие? наш магазин делает МАЛЕЙШУЮ наценку в отличии других продавьцов.
 
 Приятных покупок!
 
-Выбирай  нужный тебе товар по кнопке
-ниже:
+Выбирай нужный тебе товар по кнопке ниже:
     """,
     reply_markup=main_keyboard
   )
@@ -116,13 +115,13 @@ def handle_item(message):
         https://t.me/send?start=IVX614wkWXdx
         Оплатите по счету {price}
 
+        ✋ДОБАВЬТЕ В КОММЕНТАРИИ СВОЙ ЮЗЕРНЕЙМ А ИНАЧЕ ТОВАРА НЕ ВЫДАДИМ✋
         """,
         reply_markup=markup
    bot.send_message(
         message.chat.id,
         f"""
-        
-        ✋ДОБАВЬТЕ В КОММЕНТАРИИ СВОЙ ЮЗЕРНЕЙМ А ИНАЧЕ ТОВАРА НЕ ВЫДАДИМ✋
+
         """,
         reply_markup=markup
     )
@@ -142,7 +141,7 @@ def handle_confirm_payment(call):
             reply_markup=None
         )
         return  # Выход из обработчика, чтобы пользователь мог установить юзернейм
-    
+
     # Отправляем заявку администратору
     bot.send_message(
         chat_id='510331002', # Замените на ваш ID чата администратора
@@ -167,7 +166,7 @@ def handle_accept_payment(call):
     # Отправляем сообщение пользователю о подтверждении заявки
     bot.send_message(
         chat_id=user_id,
-        text="✅ Ваша заявка принята! для получение товара свяжитесь со мной @kitanova"
+        text="✅ Ваша заявка принята! для получения товара свяжитесь со мной @kitanova"
     )
     # Удаляем информацию о пользователе из словаря
     users_data.pop(user_id, None)
