@@ -118,13 +118,14 @@ def handle_item(message):
         ✋ДОБАВЬТЕ В КОММЕНТАРИИ СВОЙ ЮЗЕРНЕЙМ А ИНАЧЕ ТОВАРА НЕ ВЫДАДИМ✋
         """,
         reply_markup=markup
+                   )
    bot.send_message(
         message.chat.id,
         f"""
 
         """,
         reply_markup=markup
-    )
+                   )
 
 @bot.callback_query_handler(func=lambda call: call.data == "confirm_payment")
 def handle_confirm_payment(call):
