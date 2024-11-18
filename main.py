@@ -137,7 +137,7 @@ def handle_confirm_payment(call):
     
     # Отправляем заявку администратору
     bot.send_message(
-        chat_id='510331002', '5314441698' # Замените на ваш ID чата администратора
+        chat_id='510331002', # Замените на ваш ID чата администратора
         text=f"Заявка от @{call.message.from_user.username}\nТовар: {item_name}\nЦена: {price}$",
         reply_markup=generate_admin_keyboard(user_id)
     )
